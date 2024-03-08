@@ -4,6 +4,9 @@ import threading
 import queue
 import argparse
 
+# How to run file
+# python cc.py -d example.com
+
 class commonCrawlDataClass():
 
     def __init__(self,domain):
@@ -21,7 +24,7 @@ class commonCrawlDataClass():
 
     def getIndexData(self,indexID):
         try:
-	    commonCrawlURL = "http://index.commoncrawl.org/"+indexID+"-index?url="+self.domain+"/*&output=json"
+            commonCrawlURL = "http://index.commoncrawl.org/"+indexID+"-index?url="+self.domain+"/*&output=json"
             r = requests.get(commonCrawlURL)
             data = r.text.split("\n")[:-1]
             for entry in data:
